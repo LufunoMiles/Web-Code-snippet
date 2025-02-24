@@ -1,0 +1,111 @@
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Responsive Navbar</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+     <style>
+         * { margin: 0; padding: 0; box-sizing: border-box; }
+         body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+         
+
+         .navbar {
+             background: #111;
+                  padding: 15px 20px;
+                  display: flex; 
+                  align-items: center;
+                    justify-content: space-between;
+                 }
+         .navbar a { color: white;
+                     text-decoration: none;
+                     padding: 10px;
+                     font-weight: bold; }
+         .menu { list-style: none; display: flex; }
+         .menu li { position: relative; }
+         .menu li:hover .dropdown { display: flex; }
+         .menu a { padding: 10px 15px; display: block; transition: background 0.3s; }
+         .menu a:hover { background: rgba(255, 255, 255, 0.1); border-radius: 5px; }
+  
+         .dropdown { 
+             display: none;
+             position: absolute;
+             background: #222; 
+             display: flex;
+             padding: 20px;
+             gap: 25px;
+             border-radius: 5px;
+             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+         }
+         .dropdown .column { flex: 1; }
+         .dropdown .column h4 { color: orange; margin-bottom: 12px; font-size: 16px; }
+         .dropdown a { color: #ddd; font-size: 14px; }
+         .dropdown a:hover { color: white; background: #333; padding: 5px; border-radius: 5px; }
+         
+       
+         .hamburger { display: none; font-size: 24px; cursor: pointer; color: white; }
+         @media (max-width: 768px) {
+             .menu { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: #111; padding: 10px; }
+             .menu.active { display: flex; }
+             .dropdown { position: relative; width: 100%; flex-direction: column; }
+             .hamburger { display: block; }
+         }
+     </style>
+ </head>
+ <body>
+     <nav class="navbar">
+         <a href="#" class="logo">VenusGreen</a>
+         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+         <ul class="menu">
+             <li><a href="#">Home</a></li>
+             <li>
+                 <a href="#">Services &#9662;</a>
+                 <div class="dropdown">
+                     <div class="column">
+                         <h4>Managed Services</h4>
+                         <a href="#">Complete Vulnerability Management</a>
+                         <a href="#">Extended Detection & Response</a>
+                         <a href="#">Security Awareness Training</a>
+                         <a href="#">Endpoint Detection & Response</a>
+                         <a href="#">Email & Channel Security</a>
+                     </div>
+                     <div class="column">
+                         <h4>GRC</h4>
+                         <a href="#">PCI Compliance</a>
+                         <a href="#">Asset Management</a>
+                         <a href="#">Cybersecurity Gap Assessments</a>
+                     </div>
+                     <div class="column">
+                         <h4>IAM</h4>
+                         <a href="#">User Activity Monitoring</a>
+                         <a href="#">Privileged Access Management</a>
+                         <a href="#">Third Party Risk Management</a>
+                     </div>
+                     <div class="column">
+                         <h4>Assessments</h4>
+                         <a href="#">Penetration Testing</a>
+                         <a href="#">Segmentation Testing</a>
+                         <a href="#">Web Application Vulnerability Assessment</a>
+                         <a href="#">Infrastructure Vulnerability Assessment</a>
+                         <a href="#">Phishing Simulations</a>
+                         <a href="#">Firewall Assessments</a>
+                         <a href="#">Third Party Risk Assessment</a>
+                     </div>
+                 </div>
+             </li>
+             <li><a href="#">Technology Partners</a></li>
+             <li><a href="#">Blog</a></li>
+             <li><a href="#">Become a Partner</a></li>
+             <li><a href="#" style="background: orange; padding: 10px 15px; border-radius: 5px;">Get a Quote</a></li>
+         </ul>
+     </nav>
+ 
+     <script>
+         function toggleMenu() {
+             document.querySelector(".menu").classList.toggle("active");
+         }
+     </script>
+ </body>
+ </html>
